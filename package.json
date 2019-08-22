@@ -36,6 +36,7 @@
     "eslint-config-prettier": "^6.1.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^3.1.0",
+    "gh-pages": "^2.1.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0"
@@ -52,7 +53,8 @@
     "build": "run-p build:**",
     "develop": "yarn clean && env-cmd -f .env.development  gatsby develop",
     "serve": "gatsby serve",
-    "format": "prettier --config \".prettierrc\" --write \"{gatsby-*.js,src/**/*.js}\""
+    "format": "prettier --config \".prettierrc\" --write \"{gatsby-*.js,src/**/*.js}\"",
+    "deploy:github": "yarn build && node ./deploy-github"
   },
   "repository": {
     "type": "git",

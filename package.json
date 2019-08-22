@@ -19,19 +19,24 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "env-cmd": "^9.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "clean": "rimraf .cache public",
+    "start:app": "yarn develop",
+    "start": "run-p start:**",
+    "build:app": "yarn clean && gatsby build",
+    "build": "run-p build:**",
+    "develop": "yarn clean && env-cmd -f .env.development  gatsby develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "format": "prettier --config \".prettierrc\" --write \"{gatsby-*.js,src/**/*.js}\""
   },
   "repository": {
     "type": "git",
@@ -41,6 +46,6 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "resolutions": {
-    "express-graphql":"0.7.1"
+    "express-graphql": "0.7.1"
   }
 }

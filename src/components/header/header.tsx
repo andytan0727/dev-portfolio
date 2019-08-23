@@ -16,8 +16,6 @@ const Header: React.FunctionComponent = () => {
   const [mode, setMode] = useColorMode();
   const linkColor = theme.colors.text;
 
-  console.log(theme);
-
   const handleChangeMode = useCallback(() => {
     const next = mode === "dark" ? "light" : "dark";
     setMode(next);

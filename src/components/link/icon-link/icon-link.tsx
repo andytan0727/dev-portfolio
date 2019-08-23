@@ -36,7 +36,6 @@ const IconLink = (props: IconLinkProps) => {
   return (
     <Tooltip tooltipTitle={tooltip}>
       <StyledIconLink
-        {...props}
         href={url}
         target="_blank"
         rel="noreferrer"

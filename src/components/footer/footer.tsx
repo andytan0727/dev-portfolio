@@ -9,7 +9,7 @@ const BoldText = styled(Text)`
 
 const Footer: React.FunctionComponent = () => {
   return (
-    <Flex as="footer" justifyContent="center" alignItems="center">
+    <Flex as="footer" my={4} justifyContent="center" alignItems="center">
       <BoldText>&copy; {new Date().getFullYear()} | Built with &nbsp;</BoldText>
       <Link
         href="https://www.gatsbyjs.org"

@@ -21,6 +21,7 @@ export default {
       borderWidth: "2px",
       borderStyle: "solid",
       borderColor: "text",
+      cursor: "pointer",
     },
   },
 };

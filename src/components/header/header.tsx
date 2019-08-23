@@ -1,55 +1,81 @@
-import { Link as GatsbyLink } from "gatsby";
-import React, { useCallback } from "react";
-import { Box, Button, Flex, Link, Text } from "rebass";
-import { useColorMode, useThemeUI } from "theme-ui";
+import React, { useCallback, useEffect } from "react";
+import { animateScroll, Link, scrollSpy } from "react-scroll";
+import { Box, Button, Flex, Text } from "rebass";
+import { useColorMode } from "theme-ui";
 
 import styled from "@emotion/styled";
 
 const StyledLink = styled(Link)`
-  color: ${props => props.color};
-  text-decoration: none;
-  margin: 0.5rem 1.2rem;
+  margin: 0 1.2rem;
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  cursor: pointer;
 `;
 
+const scrollOptions = {
+  smooth: "easeInOutQuart",
+  spy: true,
+  hashSpy: true,
+  duration: 700,
+  activeClass: "activeLink",
+
+  // a hack around bug on react-scroll
+  // Clicking on link doesn't scroll fully into container.
+  // This handler is to scroll some more pixels to
+  // get the active class being activated
+  onClick: () => {
+    setTimeout(() => {
+      animateScroll.scrollMore(10);
+    }, 600);
+  },
+};
+
 const Header: React.FunctionComponent = () => {
-  const { theme } = useThemeUI();
   const [mode, setMode] = useColorMode();
-  const linkColor = theme.colors.text;
 
   const handleChangeMode = useCallback(() => {
     const next = mode === "dark" ? "light" : "dark";
     setMode(next);
   }, [mode, setMode]);
 
+  // update border bottom of logo on page load
+  // delay execution to make the update successfully
+  useEffect(() => {
+    setTimeout(() => {
+      scrollSpy.update();
+    }, 100);
+  }, []);
+
   return (
     // TODO: responsive nav
-    <Flex px={4} py={3} alignItems="center">
-      <Text p={2} fontWeight="bold" as="h2">
-        Andy Tan
-      </Text>
-      <Box mx="auto" />
-      <StyledLink
-        as={GatsbyLink}
-        color={linkColor}
-        variant="nav"
-        {...{ to: "/about" }}
-      >
-        About
+    <Flex
+      px={4}
+      py={2}
+      width={1}
+      alignItems="center"
+      sx={{
+        position: "fixed",
+
+        "& .activeLink": {
+          borderBottomWidth: "5px",
+          borderBottomStyle: "solid",
+          borderBottomColor: "primary",
+        },
+      }}
+    >
+      <StyledLink to="landing" {...scrollOptions}>
+        <Text fontWeight="bold" as="h2">
+          Andy Tan
+        </Text>
       </StyledLink>
-      <StyledLink
-        as={GatsbyLink}
-        color={linkColor}
-        variant="nav"
-        {...{ to: "/skills" }}
-      >
+      <Box mx="auto" />
+      <StyledLink to="about-me" {...scrollOptions}>
+        About Me
+      </StyledLink>
+      <StyledLink to="skills" {...scrollOptions}>
         Skills
       </StyledLink>
-      <StyledLink
-        as={GatsbyLink}
-        color={linkColor}
-        variant="nav"
-        {...{ to: "/projects" }}
-      >
+      <StyledLink to="projects" {...scrollOptions}>
         Projects
       </StyledLink>
       <Button variant="outline" ml={3} onClick={handleChangeMode}>

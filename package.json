@@ -30,6 +30,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.7.0",
     "rebass": "^4.0.5",
     "theme-ui": "^0.2.36",
     "typescript": "^3.5.3"

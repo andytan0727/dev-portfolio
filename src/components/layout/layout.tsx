@@ -1,13 +1,13 @@
 import "normalize.css";
 
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Box } from "rebass";
 import { ThemeProvider } from "theme-ui";
 
+import Footer from "@components/footer";
+import Header from "@components/header";
+import SEO from "@components/seo";
 import theme from "@src/gatsby-plugin-theme-ui";
-
-import Header from "../header";
 
 interface LayoutProps {
   children: React.ReactChildren | React.ReactElement;
@@ -16,34 +16,16 @@ interface LayoutProps {
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
 }: LayoutProps) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <>
       <Header />
-      <Box
-        px={1}
-        sx={{
-          fontSize: 2,
-        }}
-      >
-        <ThemeProvider theme={theme}>
-          <main>{children}</main>
-        </ThemeProvider>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </Box>
+      <ThemeProvider theme={theme}>
+        <Box as="main" mt={2} px={4} width={1} height="100%">
+          <SEO />
+          {children}
+        </Box>
+      </ThemeProvider>
+      <Footer />
     </>
   );
 };

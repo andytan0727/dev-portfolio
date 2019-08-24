@@ -2,14 +2,14 @@ import React from "react";
 import { Element } from "react-scroll";
 import { Box, Text } from "rebass";
 
-import BackEndSection from "@src/page-sections/skills/back-end";
-import DataScienceAndMLSection from "@src/page-sections/skills/data-science-and-ml";
-import DatabaseSection from "@src/page-sections/skills/database";
-import DesignSection from "@src/page-sections/skills/design";
-import EditorsSection from "@src/page-sections/skills/editors";
-import FrontEndSection from "@src/page-sections/skills/front-end";
-import MiscSection from "@src/page-sections/skills/misc";
-import OperatingSystemSection from "@src/page-sections/skills/operating-system";
+import BackEndSection from "./back-end";
+import DataScienceAndMLSection from "./data-science-and-ml";
+import DatabaseSection from "./database";
+import DesignSection from "./design";
+import EditorsSection from "./editors";
+import FrontEndSection from "./front-end";
+import MiscSection from "./misc";
+import OperatingSystemSection from "./operating-system";
 
 const Skills: React.FunctionComponent = () => {
   return (

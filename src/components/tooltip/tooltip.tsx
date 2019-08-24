@@ -5,12 +5,13 @@ import styled from "@emotion/styled";
 
 interface TooltipProps {
   highlight?: string;
+  direction?: "bottom" | "right";
   tooltipTitle: string;
   children: JSX.Element;
 }
 
 type StyledTooltipProps = Required<
-  Pick<TooltipProps, "highlight" | "tooltipTitle">
+  Pick<TooltipProps, "highlight" | "tooltipTitle" | "direction">
 >;
 
 const StyledTooltip = styled.div<StyledTooltipProps>`
@@ -21,8 +22,11 @@ const StyledTooltip = styled.div<StyledTooltipProps>`
     min-width: 4rem;
     padding: .25rem .5rem;
     position: absolute;
-    top: 120%;
-    left: 10%;
+
+    /* tooltip direction */
+    top: ${props => (props.direction === "bottom" ? "120%" : "25%")};
+    left: ${props => (props.direction === "bottom" ? "10%" : "120%")};
+
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -42,12 +46,16 @@ const StyledTooltip = styled.div<StyledTooltipProps>`
 const Tooltip: React.FunctionComponent<TooltipProps> = (
   props: TooltipProps
 ) => {
-  const { highlight, tooltipTitle, children } = props;
+  const { direction = "bottom", highlight, tooltipTitle, children } = props;
   const { theme } = useThemeUI();
   const highlightBg: string = highlight || theme.colors.highlight;
 
   return (
-    <StyledTooltip tooltipTitle={tooltipTitle} highlight={highlightBg}>
+    <StyledTooltip
+      direction={direction}
+      highlight={highlightBg}
+      tooltipTitle={tooltipTitle}
+    >
       {children}
     </StyledTooltip>
   );

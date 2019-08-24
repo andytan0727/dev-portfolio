@@ -17,6 +17,7 @@ const scrollOptions = {
   spy: true,
   hashSpy: true,
   duration: 700,
+  offset: -75, // offset height of navbar
   activeClass: "activeLink",
 
   // a hack around bug on react-scroll
@@ -50,11 +51,13 @@ const Header: React.FunctionComponent = () => {
     // TODO: responsive nav
     <Flex
       px={4}
-      py={2}
+      py={3}
       width={1}
       alignItems="center"
       sx={{
         position: "fixed",
+        backgroundColor: "background",
+        zIndex: 2,
 
         "& .activeLink": {
           borderBottomWidth: "5px",

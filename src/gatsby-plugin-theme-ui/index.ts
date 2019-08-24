@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-  breakpoints: ["40em", "52em", "64em"],
+  breakpoints: ["480px", "624px", "768px"],
   buttons: {
     outline: {
       color: "text",

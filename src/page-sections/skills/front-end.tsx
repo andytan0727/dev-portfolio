@@ -8,7 +8,8 @@ import {
 } from "react-icons/di";
 import { Box, Text } from "rebass";
 
-import { SkillPanel } from "@src/components/panel";
+import { TypescriptSvg } from "@components/image";
+import { SkillPanel } from "@components/panel";
 
 const FrontEndSection: React.FunctionComponent = () => {
   return (
@@ -21,6 +22,12 @@ const FrontEndSection: React.FunctionComponent = () => {
         icon={<DiReact size={50} />}
         progressPercent={70}
         skillExperienceDesc="My go-to JavaScript library when building web app. Used it since 2018. First used for serious project in Jan 2019."
+      />
+      <SkillPanel
+        tooltip="TypeScript"
+        icon={<TypescriptSvg size={50} />}
+        progressPercent={60}
+        skillExperienceDesc="Nothing better than typed JavaScript ❤️. Used it since January 2019, first on my UUM Math Camp project."
       />
       <SkillPanel
         tooltip="Angular"

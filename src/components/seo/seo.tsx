@@ -2,6 +2,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import Helmet from "react-helmet";
 
+import { MetadataQuery } from "@src/types/metadata-query";
+
 interface SEOProps {
   description?: string;
   lang?: "en";
@@ -18,7 +20,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({
   meta,
   title,
 }: SEOProps) => {
-  const { site } = useStaticQuery(
+  const { site } = useStaticQuery<MetadataQuery>(
     graphql`
       query {
         site {
@@ -64,7 +66,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author as string,
+          content: site.siteMetadata.author,
         },
         {
           name: `twitter:title`,

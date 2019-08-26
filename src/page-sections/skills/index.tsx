@@ -1,6 +1,8 @@
 import React from "react";
 import { Element } from "react-scroll";
-import { Box, Text } from "rebass";
+import { Box } from "rebass";
+
+import { SectionTitle } from "@src/components/text";
 
 import BackEndSection from "./back-end";
 import DataScienceAndMLSection from "./data-science-and-ml";
@@ -15,20 +17,9 @@ const Skills: React.FunctionComponent = () => {
   return (
     <Element name="skills">
       <Box backgroundColor="muted">
-        <Text
-          as="h1"
-          width="5rem"
-          ml={[3, 4]}
-          pt={4}
-          pb={1}
-          sx={{
-            borderBottomWidth: "5px",
-            borderBottomStyle: "solid",
-            borderBottomColor: "text",
-          }}
-        >
+        <SectionTitle width="5rem" ml={[3, 4]} pt={4} pb={1}>
           Skills
-        </Text>
+        </SectionTitle>
 
         <Box
           pl={[3, 4]}

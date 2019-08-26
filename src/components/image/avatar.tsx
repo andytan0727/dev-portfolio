@@ -26,6 +26,8 @@ const Avatar: React.FunctionComponent = () => {
   return (
     <Image
       imageStyles={{
+        width: 280,
+        height: 280,
         borderRadius: 9999,
       }}
       fluid={fluid}

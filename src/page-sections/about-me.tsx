@@ -12,7 +12,7 @@ const AboutMe: React.FunctionComponent = () => {
   return (
     <Element name="about-me">
       <Box
-        px={3}
+        px={[0, 3]}
         py={4}
         sx={{
           minHeight: "100vh",
@@ -20,7 +20,7 @@ const AboutMe: React.FunctionComponent = () => {
 
           gridTemplateColumns: "repeat(auto-fit, minmax(23rem, max-content))",
 
-          "@media screen and (max-width: 480px)": {
+          "@media screen and (max-width: 40em)": {
             gridTemplateColumns: "repeat(auto-fit, minmax(20rem, 1fr))",
           },
 
@@ -38,22 +38,19 @@ const AboutMe: React.FunctionComponent = () => {
           justifyContent="center"
         >
           <SectionTitle mt={[0, 0]}>About Me</SectionTitle>
-          <Box width={[0.8, 0.5, 0.85]} mt={4}>
+          <Box mt={4}>
             <Avatar />
           </Box>
         </Flex>
         <Box
           height="100%"
           sx={{
+            width: ["90%", "100%"],
             alignSelf: ["start", "start", "center"],
             justifySelf: ["center", "center", "start"],
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "start",
           }}
         >
-          <Text width={[1]} mt={3} fontSize={3} lineHeight={1.7}>
+          <Text mt={3} fontSize={3} lineHeight={1.7}>
             I am Andy, with the full name Tan Boon Ping, currently pursuing a
             degree of Bachelor of Science With Honours (Business Mathematics)
             [B.Sc. (Hons) Business Mathematics] in Universiti Utara Malaysia

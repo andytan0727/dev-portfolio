@@ -27,6 +27,11 @@ const theme = {
       borderColor: "text",
       cursor: "pointer",
     },
+    default: {
+      color: "text",
+      bg: "transparent",
+      cursor: "pointer",
+    },
   },
 };
 

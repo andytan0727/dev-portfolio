@@ -39,3 +39,14 @@ declare module "theme-ui" {
     };
   };
 }
+
+// fix the incompatibility between @emotion/core and rebass css attr
+declare namespace JSX {
+  interface IntrinsicAttributes {
+    // css attr type same with @types/rebass BaseProps css
+    css?:
+      | import("styled-components").CSSObject
+      | import("styled-components").FlattenSimpleInterpolation
+      | string;
+  }
+}

@@ -6,13 +6,13 @@ const SectionTitle: React.FunctionComponent<TextProps> = (props: TextProps) => {
 
   return (
     <Text
+      {...rest}
       as="h1"
       sx={{
         borderBottomWidth: "5px",
         borderBottomStyle: "solid",
         borderBottomColor: "text",
       }}
-      {...rest}
     >
       {children}
     </Text>

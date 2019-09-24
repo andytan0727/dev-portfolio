@@ -1,4 +1,5 @@
-import React from "react";
+import debounce from "lodash.debounce";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   FaFacebook,
   FaGithub,
@@ -10,9 +11,35 @@ import { Element } from "react-scroll";
 import { Flex, Text } from "rebass";
 
 import IconLink from "@src/components/link/icon-link";
+import { matchMediaMobile } from "@src/lib/mediaQuery";
+
+const largeIconSize = 48;
+const smallIconSize = 30;
 
 const Landing: React.FunctionComponent = () => {
-  const iconSize = 48;
+  const [iconSize, setIconSize] = useState(largeIconSize);
+  const [matchMobile, setMatchMobile] = useState(matchMediaMobile());
+
+  const handleSetMatchMobile = useCallback(
+    debounce(() => {
+      setMatchMobile(matchMediaMobile());
+    }, 50),
+    []
+  );
+
+  // resize social media icons if viewport is resized
+  useEffect(() => {
+    if (matchMobile) setIconSize(smallIconSize);
+    else setIconSize(largeIconSize);
+  }, [matchMobile]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSetMatchMobile);
+
+    return () => {
+      window.removeEventListener("resize", handleSetMatchMobile);
+    };
+  }, [handleSetMatchMobile]);
 
   return (
     <Element name="landing">

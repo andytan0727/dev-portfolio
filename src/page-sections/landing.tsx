@@ -18,28 +18,24 @@ const smallIconSize = 30;
 
 const Landing: React.FunctionComponent = () => {
   const [iconSize, setIconSize] = useState(largeIconSize);
-  const [matchMobile, setMatchMobile] = useState(matchMediaMobile());
 
-  const handleSetMatchMobile = useCallback(
+  const handleSetIconSize = useCallback(
     debounce(() => {
-      setMatchMobile(matchMediaMobile());
+      setIconSize(matchMediaMobile() ? smallIconSize : largeIconSize);
     }, 50),
     []
   );
 
-  // resize social media icons if viewport is resized
   useEffect(() => {
-    if (matchMobile) setIconSize(smallIconSize);
-    else setIconSize(largeIconSize);
-  }, [matchMobile]);
+    // set initial icon size on mount
+    handleSetIconSize();
 
-  useEffect(() => {
-    window.addEventListener("resize", handleSetMatchMobile);
+    window.addEventListener("resize", handleSetIconSize);
 
     return () => {
-      window.removeEventListener("resize", handleSetMatchMobile);
+      window.removeEventListener("resize", handleSetIconSize);
     };
-  }, [handleSetMatchMobile]);
+  }, [handleSetIconSize]);
 
   return (
     <Element name="landing">

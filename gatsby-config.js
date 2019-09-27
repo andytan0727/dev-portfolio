@@ -8,6 +8,35 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-typescript",
     {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        token: process.env.GITHUB_TOKEN,
+        graphQLQuery: `
+        query($author: String = "", $userFirst: Int = 0) {
+          user(login: $author) {
+            repositories(first: $userFirst,  isFork: false, isLocked: false, privacy: PUBLIC, orderBy: { field: PUSHED_AT, direction: DESC }) {
+              edges {
+                node {
+                  name
+                  url
+                  description
+                  primaryLanguage {
+                    name
+                    color
+                  }
+                }
+              }
+            }
+          }
+        }
+        `,
+        variables: {
+          author: "andytan0727",
+          userFirst: 10,
+        },
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",

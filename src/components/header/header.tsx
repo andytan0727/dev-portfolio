@@ -129,6 +129,9 @@ const Header: React.FunctionComponent = () => {
           <StyledLink to="projects" {...scrollOptions}>
             <Text fontSize={navItemFontSize}>Projects</Text>
           </StyledLink>
+          <StyledLink to="contact-me" {...scrollOptions}>
+            <Text fontSize={navItemFontSize}>Contact Me</Text>
+          </StyledLink>
           <Button
             variant="outline"
             ml={[0, 3]}

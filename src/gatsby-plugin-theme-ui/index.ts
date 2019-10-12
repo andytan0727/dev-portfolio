@@ -4,6 +4,7 @@ const theme = {
   ...deep,
   initialColorMode: "dark",
   useCustomProperties: true,
+  breakpoints: ["40em", "52em", "64em"],
   colors: {
     purple1: "#dbd8e3",
     purple2: "#5c5470",

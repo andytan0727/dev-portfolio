@@ -6,6 +6,8 @@ import { useColorMode } from "theme-ui";
 
 import styled from "@emotion/styled";
 
+type SectionLinks = { to: string; name: string }[];
+
 const StyledLink = styled(Link)`
   margin: 0 1.2rem;
   padding: 0.5rem 0;
@@ -31,6 +33,25 @@ const scrollOptions = {
     }, 600);
   },
 };
+
+const sectionLinks: SectionLinks = [
+  {
+    to: "about-me",
+    name: "About Me",
+  },
+  {
+    to: "skills",
+    name: "Skills",
+  },
+  {
+    to: "projects",
+    name: "Projects",
+  },
+  {
+    to: "contact-me",
+    name: "Contact Me",
+  },
+];
 
 const Header: React.FunctionComponent = () => {
   const [mode, setMode] = useColorMode();
@@ -114,24 +135,18 @@ const Header: React.FunctionComponent = () => {
           {!showNav ? <FaBars /> : <FaTimes />}
         </Button>
       )}
+
       {(!isMobile || showNav) && (
         <Flex
           width={isMobile ? 1 : ""}
           flexDirection={flexDirection}
           alignItems="center"
         >
-          <StyledLink to="about-me" {...scrollOptions}>
-            <Text fontSize={navItemFontSize}>About Me</Text>
-          </StyledLink>
-          <StyledLink to="skills" {...scrollOptions}>
-            <Text fontSize={navItemFontSize}>Skills</Text>
-          </StyledLink>
-          <StyledLink to="projects" {...scrollOptions}>
-            <Text fontSize={navItemFontSize}>Projects</Text>
-          </StyledLink>
-          <StyledLink to="contact-me" {...scrollOptions}>
-            <Text fontSize={navItemFontSize}>Contact Me</Text>
-          </StyledLink>
+          {sectionLinks.map(({ to, name }) => (
+            <StyledLink key={to} to={to} {...scrollOptions}>
+              <Text fontSize={navItemFontSize}>{name}</Text>
+            </StyledLink>
+          ))}
           <Button
             variant="outline"
             ml={[0, 3]}

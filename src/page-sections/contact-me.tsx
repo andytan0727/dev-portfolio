@@ -1,4 +1,3 @@
-import debounce from "lodash.debounce";
 import React, { useCallback, useEffect, useState } from "react";
 import {
   FaFacebook,
@@ -11,6 +10,7 @@ import { Element } from "react-scroll";
 import { Flex, Text } from "rebass";
 
 import IconLink from "@src/components/link/icon-link";
+import { useWindowResize } from "@src/lib/hooks";
 import { matchMediaMobile } from "@src/lib/mediaQuery";
 
 const largeIconSize = 48;
@@ -19,23 +19,18 @@ const smallIconSize = 30;
 const ContactMe: React.FunctionComponent = () => {
   const [iconSize, setIconSize] = useState(largeIconSize);
 
-  const handleSetIconSize = useCallback(
-    debounce(() => {
-      setIconSize(matchMediaMobile() ? smallIconSize : largeIconSize);
-    }, 50),
-    []
-  );
+  const handleSetIconSize = useCallback(() => {
+    setIconSize(matchMediaMobile() ? smallIconSize : largeIconSize);
+  }, []);
 
   useEffect(() => {
     // set initial icon size on mount
+    // put in useEffect because window object is absent
+    // in nodejs
     handleSetIconSize();
-
-    window.addEventListener("resize", handleSetIconSize);
-
-    return () => {
-      window.removeEventListener("resize", handleSetIconSize);
-    };
   }, [handleSetIconSize]);
+
+  useWindowResize(handleSetIconSize);
 
   return (
     <Element name="contact-me">

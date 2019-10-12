@@ -5,6 +5,7 @@ import { Box, Button, Flex, Text } from "rebass";
 import { useColorMode } from "theme-ui";
 
 import styled from "@emotion/styled";
+import { useWindowResize } from "@src/lib/hooks";
 import { matchMediaTablet } from "@src/lib/mediaQuery";
 
 type SectionLinks = { to: string; name: string }[];
@@ -46,7 +47,7 @@ const sectionLinks: SectionLinks = [
 
 const Header: React.FunctionComponent = () => {
   const [mode, setMode] = useColorMode();
-  const [isTablet, setIsTablet] = useState(matchMediaTablet());
+  const [isTablet, setIsTablet] = useState(false);
   const [showNav, setShowNav] = useState(false);
   const flexDirection = isTablet ? "column" : "row";
   const navItemFontSize = [2, 3];
@@ -75,13 +76,7 @@ const Header: React.FunctionComponent = () => {
     setShowNav(prevShowNav => !prevShowNav);
   }, [setShowNav]);
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [handleResize]);
+  useWindowResize(handleResize);
 
   return (
     <Flex

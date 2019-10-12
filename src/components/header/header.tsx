@@ -5,6 +5,7 @@ import { Box, Button, Flex, Text } from "rebass";
 import { useColorMode } from "theme-ui";
 
 import styled from "@emotion/styled";
+import { matchMediaTablet } from "@src/lib/mediaQuery";
 
 type SectionLinks = { to: string; name: string }[];
 
@@ -55,9 +56,9 @@ const sectionLinks: SectionLinks = [
 
 const Header: React.FunctionComponent = () => {
   const [mode, setMode] = useColorMode();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(matchMediaTablet());
   const [showNav, setShowNav] = useState(false);
-  const flexDirection = isMobile ? "column" : "row";
+  const flexDirection = isTablet ? "column" : "row";
   const navItemFontSize = [2, 3];
 
   const handleChangeMode = useCallback(() => {
@@ -66,13 +67,12 @@ const Header: React.FunctionComponent = () => {
   }, [mode, setMode]);
 
   const handleResize = useCallback(() => {
-    const { matches } = window.matchMedia("(max-width: 40em)");
-    setIsMobile(matches);
+    setIsTablet(matchMediaTablet());
   }, []);
 
-  // update border bottom of logo on page load
-  // delay execution to make the update successfully
   useEffect(() => {
+    // update border bottom of logo on page load
+    // delay execution to make the update successfully
     setTimeout(() => {
       scrollSpy.update();
     }, 100);
@@ -118,7 +118,7 @@ const Header: React.FunctionComponent = () => {
         </Text>
       </StyledLink>
       <Box mx="auto" />
-      {isMobile && (
+      {isTablet && (
         <Button
           variant="default"
           px={3}
@@ -136,9 +136,9 @@ const Header: React.FunctionComponent = () => {
         </Button>
       )}
 
-      {(!isMobile || showNav) && (
+      {(!isTablet || showNav) && (
         <Flex
-          width={isMobile ? 1 : ""}
+          width={isTablet ? 1 : ""}
           flexDirection={flexDirection}
           alignItems="center"
         >

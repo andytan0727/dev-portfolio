@@ -105,11 +105,14 @@ const Header: React.FunctionComponent = () => {
         backgroundColor: "background",
         zIndex: 2,
 
-        "& .activeLink": {
-          borderBottomWidth: "5px",
-          borderBottomStyle: "solid",
-          borderBottomColor: "primary",
-        },
+        // disable border bottom on tablet size and below
+        "& .activeLink": !isTablet
+          ? {
+              borderBottomWidth: "5px",
+              borderBottomStyle: "solid",
+              borderBottomColor: "primary",
+            }
+          : "",
       }}
     >
       <StyledLink to="landing" {...scrollOptions}>

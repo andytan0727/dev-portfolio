@@ -22,6 +22,23 @@ declare module "@theme-ui/presets" {
   };
 }
 
+declare module "react-typed" {
+  interface TypedProps {
+    strings: string[];
+    typeSpeed?: number;
+    backSpeed?: number;
+    attr?: string;
+    loop?: boolean;
+    typedRef?: import("react").RefObject;
+    className?: string;
+    style: import("react").CSSProperties;
+  }
+
+  const Typed: React.FunctionComponent<TypedProps>;
+
+  export default Typed;
+}
+
 declare module "theme-ui" {
   export { ThemeProvider } from "theme-ui";
   type ColorMode = "dark" | "light";

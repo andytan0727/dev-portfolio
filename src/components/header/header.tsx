@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { animateScroll, Link, scrollSpy } from "react-scroll";
+import { Link, scrollSpy } from "react-scroll";
 import { Box, Button, Flex, Text } from "rebass";
 import { useColorMode } from "theme-ui";
 
@@ -20,19 +20,9 @@ const scrollOptions = {
   smooth: "easeInOutQuart",
   spy: true,
   hashSpy: true,
-  duration: 700,
+  duration: 500,
   offset: -75, // offset height of navbar
   activeClass: "activeLink",
-
-  // a hack around bug on react-scroll
-  // Clicking on link doesn't scroll fully into container.
-  // This handler is to scroll some more pixels to
-  // get the active class being activated
-  onClick: () => {
-    setTimeout(() => {
-      animateScroll.scrollMore(20);
-    }, 600);
-  },
 };
 
 const sectionLinks: SectionLinks = [

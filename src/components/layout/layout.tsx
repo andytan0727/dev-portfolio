@@ -50,9 +50,7 @@ const GlobalStyles = () => {
   );
 };
 
-const Layout: React.FunctionComponent<LayoutProps> = ({
-  children,
-}: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
   return (
     <>
       <Header />

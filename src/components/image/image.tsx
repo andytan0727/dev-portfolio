@@ -7,7 +7,7 @@ interface ImageProps {
   imageStyles?: React.CSSProperties;
 }
 
-const Image: React.FunctionComponent<ImageProps> = (props: ImageProps) => {
+const Image: React.FC<ImageProps> = (props: ImageProps) => {
   const { alt, fluid, imageStyles } = props;
 
   return <Img style={imageStyles} fluid={fluid} alt={alt} />;

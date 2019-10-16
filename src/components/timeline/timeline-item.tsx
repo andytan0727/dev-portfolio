@@ -81,7 +81,7 @@ const StyledBullet = styled(Box)<StyledBulletProps>`
   height: 1em;
 `;
 
-const TimeDuration: React.FunctionComponent<TimeDurationProps> = (
+const TimeDuration: React.FC<TimeDurationProps> = (
   props: TimeDurationProps
 ) => {
   const { duration, separator } = props;
@@ -114,7 +114,7 @@ const TimeDuration: React.FunctionComponent<TimeDurationProps> = (
   );
 };
 
-const TimelineItem: React.FunctionComponent<TimelineItemProps> = (
+const TimelineItem: React.FC<TimelineItemProps> = (
   props: TimelineItemProps
 ) => {
   const {

@@ -14,7 +14,7 @@ interface SEOProps {
   title?: string;
 }
 
-const SEO: React.FunctionComponent<SEOProps> = ({
+const SEO: React.FC<SEOProps> = ({
   description,
   lang,
   meta,

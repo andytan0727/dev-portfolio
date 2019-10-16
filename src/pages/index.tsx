@@ -8,7 +8,7 @@ import Landing from "@src/page-sections/landing";
 import Projects from "@src/page-sections/projects";
 import Skills from "@src/page-sections/skills";
 
-const IndexPage: React.FunctionComponent = () => (
+const IndexPage: React.FC = () => (
   <Layout>
     <>
       <SEO title="Home" />

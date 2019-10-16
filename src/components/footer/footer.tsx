@@ -7,7 +7,7 @@ const BoldText = styled(Text)`
   font-weight: bold;
 `;
 
-const Footer: React.FunctionComponent = () => {
+const Footer: React.FC = () => {
   return (
     <Flex as="footer" my={4} justifyContent="center" alignItems="center">
       <BoldText>&copy; {new Date().getFullYear()} | Built with &nbsp;</BoldText>

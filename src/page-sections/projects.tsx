@@ -7,7 +7,7 @@ import ProjectCard from "@src/components/card/project-card";
 import { SectionTitle } from "@src/components/text";
 import { GithubDataQuery } from "@src/types/github-data-query";
 
-const Projects: React.FunctionComponent = () => {
+const Projects: React.FC = () => {
   const data = useStaticQuery<GithubDataQuery>(graphql`
     query {
       githubData {

@@ -6,9 +6,7 @@ interface ProgressBarProps {
   percent: number;
 }
 
-const ProgressBar: React.FunctionComponent<ProgressBarProps> = (
-  props: ProgressBarProps
-) => {
+const ProgressBar: React.FC<ProgressBarProps> = (props: ProgressBarProps) => {
   const { trackHeight, percent } = props;
 
   if (percent > 100 || percent < 0)

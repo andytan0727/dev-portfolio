@@ -29,9 +29,7 @@ const iconSize = 20;
  *
  * @param props
  */
-const LangIcon: React.FunctionComponent<LangIconProps> = (
-  props: LangIconProps
-) => {
+const LangIcon: React.FC<LangIconProps> = (props: LangIconProps) => {
   const { color, lang } = props;
 
   switch (lang) {
@@ -67,9 +65,7 @@ const StyledLink = styled(Link)<StyledLinkProps>`
  *
  * @param props
  */
-const ProjectCard: React.FunctionComponent<ProjectCardProps> = (
-  props: ProjectCardProps
-) => {
+const ProjectCard: React.FC<ProjectCardProps> = (props: ProjectCardProps) => {
   const {
     node: {
       name,

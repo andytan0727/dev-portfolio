@@ -5,7 +5,7 @@ interface HighlightTextProps extends TextProps {
   text: string;
 }
 
-const HighlightText: React.FunctionComponent<HighlightTextProps> = (
+const HighlightText: React.FC<HighlightTextProps> = (
   props: HighlightTextProps
 ) => {
   const { text, ...rest } = props;

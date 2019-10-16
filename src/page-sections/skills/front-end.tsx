@@ -15,7 +15,7 @@ import { Box, Text } from "rebass";
 import { TypescriptSvg } from "@components/image";
 import { SkillPanel } from "@components/panel";
 
-const FrontEndSection: React.FunctionComponent = () => {
+const FrontEndSection: React.FC = () => {
   return (
     <Box>
       <Text as="h2" pb={3}>

@@ -22,7 +22,7 @@ const scrollOptions = {
   offset: -75, // offset height of navbar
 };
 
-const Landing: React.FunctionComponent = () => {
+const Landing: React.FC = () => {
   const {
     theme: {
       colors: { text: color },

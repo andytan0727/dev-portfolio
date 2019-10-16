@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, TextProps } from "rebass";
 
-const SectionTitle: React.FunctionComponent<TextProps> = (props: TextProps) => {
+const SectionTitle: React.FC<TextProps> = (props: TextProps) => {
   const { children, ...rest } = props;
 
   return (

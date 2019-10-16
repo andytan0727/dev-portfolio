@@ -6,7 +6,7 @@ import { AvatarQuery } from "@src/types/avatar-query";
 
 import Image from "./image";
 
-const Avatar: React.FunctionComponent = () => {
+const Avatar: React.FC = () => {
   const data = useStaticQuery<AvatarQuery>(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "avatar-600x600.png" }) {

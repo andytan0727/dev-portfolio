@@ -6,7 +6,7 @@ interface TypescriptSvgProps {
   fill?: string;
 }
 
-const TypescriptSvg: React.FunctionComponent<TypescriptSvgProps> = (
+const TypescriptSvg: React.FC<TypescriptSvgProps> = (
   props: TypescriptSvgProps
 ) => {
   const { fill, size } = props;

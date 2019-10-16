@@ -43,9 +43,7 @@ const StyledTooltip = styled.div<StyledTooltipProps>`
   }
 `;
 
-const Tooltip: React.FunctionComponent<TooltipProps> = (
-  props: TooltipProps
-) => {
+const Tooltip: React.FC<TooltipProps> = (props: TooltipProps) => {
   const { direction = "bottom", highlight, tooltipTitle, children } = props;
   const { theme } = useThemeUI();
   const highlightBg: string = highlight || theme.colors.highlight;

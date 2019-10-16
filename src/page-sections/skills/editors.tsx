@@ -4,7 +4,7 @@ import { Box, Text } from "rebass";
 
 import { SkillPanel } from "@src/components/panel";
 
-const EditorsSection: React.FunctionComponent = () => {
+const EditorsSection: React.FC = () => {
   return (
     <Box>
       <Text as="h2" pb={3}>

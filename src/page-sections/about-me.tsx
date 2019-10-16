@@ -19,9 +19,7 @@ const StyledUl = styled.ul`
   grid-row-gap: 1rem;
 `;
 
-const AboutMeParagraphText: React.FunctionComponent<TextProps> = (
-  props: TextProps
-) => {
+const AboutMeParagraphText: React.FC<TextProps> = (props: TextProps) => {
   const { children, ...rest } = props;
 
   return (
@@ -36,7 +34,7 @@ const AboutMeParagraphText: React.FunctionComponent<TextProps> = (
   );
 };
 
-const AboutMe: React.FunctionComponent = () => {
+const AboutMe: React.FC = () => {
   const { colorMode } = useThemeUI();
 
   return (

@@ -13,7 +13,7 @@ import FrontEndSection from "./front-end";
 import MiscSection from "./misc";
 import OperatingSystemSection from "./operating-system";
 
-const Skills: React.FunctionComponent = () => {
+const Skills: React.FC = () => {
   return (
     <Element name="skills">
       <Box backgroundColor="muted">

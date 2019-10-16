@@ -15,9 +15,7 @@ const StyledTimelineList = styled.ul`
   padding: 0px;
 `;
 
-export const Timeline: React.FunctionComponent<TimelineProps> = (
-  props: TimelineProps
-) => {
+export const Timeline: React.FC<TimelineProps> = (props: TimelineProps) => {
   const { lineColor, durationSeparator, children } = props;
 
   // assign parent (Timeline) props to child (TimelineItem)

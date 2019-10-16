@@ -36,7 +36,7 @@ const sectionLinks: SectionLinks = [
   },
 ];
 
-const Header: React.FunctionComponent = () => {
+const Header: React.FC = () => {
   const [mode, setMode] = useColorMode();
   const [isTablet, setIsTablet] = useState(false);
   const [showNav, setShowNav] = useState(false);

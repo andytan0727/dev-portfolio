@@ -23,9 +23,7 @@ const StyledSkillPanel = styled(Box)`
   align-items: center;
 `;
 
-const SkillPanel: React.FunctionComponent<SkillPanelProps> = (
-  props: SkillPanelProps
-) => {
+const SkillPanel: React.FC<SkillPanelProps> = (props: SkillPanelProps) => {
   const { icon, progressPercent, skillExperienceDesc, tooltip } = props;
 
   return (

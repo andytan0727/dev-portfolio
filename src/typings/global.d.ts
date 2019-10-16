@@ -34,7 +34,7 @@ declare module "react-typed" {
     style: import("react").CSSProperties;
   }
 
-  const Typed: React.FunctionComponent<TypedProps>;
+  const Typed: React.FC<TypedProps>;
 
   export default Typed;
 }

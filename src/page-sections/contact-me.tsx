@@ -16,7 +16,7 @@ import { matchMediaMobile } from "@src/lib/mediaQuery";
 const largeIconSize = 48;
 const smallIconSize = 30;
 
-const ContactMe: React.FunctionComponent = () => {
+const ContactMe: React.FC = () => {
   const [iconSize, setIconSize] = useState(largeIconSize);
 
   const handleSetIconSize = useCallback(() => {

@@ -24,6 +24,11 @@ const GlobalStyles = () => {
   return (
     <Global
       styles={css`
+        * {
+          box-sizing: border-box;
+          font-family: "Fira Sans", sans-serif !important;
+        }
+
         body {
           &,
           & * {

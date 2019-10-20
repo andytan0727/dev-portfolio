@@ -3,32 +3,18 @@ import { Element } from "react-scroll";
 import { Box, Text, TextProps } from "rebass";
 import { useThemeUI } from "theme-ui";
 
-import styled from "@emotion/styled";
 import { HighlightText, SectionTitle } from "@src/components/text";
-
-// rebass components styles
-// to ensure styles consistency across different components
-const textVerticalSpacing = [4, 4];
-const textLineHeight = 2;
-const textFontSize = 3;
-
-const StyledUl = styled.ul`
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-template-columns: 100%;
-  grid-row-gap: 1rem;
-`;
+import Timeline from "@src/components/timeline/timeline";
+import TimelineItem from "@src/components/timeline/timeline-item";
 
 const AboutMeParagraphText: React.FC<TextProps> = (props: TextProps) => {
   const { children, ...rest } = props;
 
+  const textLineHeight = 1.5;
+  const textFontSize = 2;
+
   return (
-    <Text
-      {...rest}
-      fontSize={textFontSize}
-      lineHeight={textLineHeight}
-      mt={textVerticalSpacing}
-    >
+    <Text {...rest} fontSize={textFontSize} lineHeight={textLineHeight}>
       {children}
     </Text>
   );
@@ -40,9 +26,8 @@ const AboutMe: React.FC = () => {
   return (
     <Element name="about-me">
       <Box
-        px={[0, 4]}
-        // py={4}
-        py={textVerticalSpacing}
+        px={[1, 4]}
+        py={[4, 3]}
         sx={{
           minHeight: "100vh",
           display: "grid",
@@ -69,58 +54,72 @@ const AboutMe: React.FC = () => {
           }}
         >
           <SectionTitle width="9rem">About Me</SectionTitle>
-
-          <AboutMeParagraphText>
+          <AboutMeParagraphText mt={3}>
             I am Andy Tan Boon Ping, currently pursuing a degree of Bachelor of
             Science With Honours (Business Mathematics) [B.Sc. (Hons) Business
-            Mathematics] in Universiti Utara Malaysia (UUM). I have learned
-            programming and web development skills alongside with my primary
-            study in university. Below is some brief summary of my past
-            experiences:
+            Mathematics] in Universiti Utara Malaysia (UUM). I have learned web
+            development skills alongside with my primary study in university.
+            Brief summary of my past experiences as below:
           </AboutMeParagraphText>
-          <AboutMeParagraphText>
-            <StyledUl>
-              <li>
-                First learnt programming in the year 2017. Get to know about web
-                development in the lower half of the year.
-              </li>
-              <li>
-                Dive deeper into web development starting from the year 2018.
-                During the period, I developed my first project with{" "}
-                <HighlightText text="Vue" />, which is a game for primary school
-                kids in UUM Math Camp 2018 event.
-              </li>
-              <li>
-                Fast forward to the year 2019, I developed my second project
-                with UUM Math Camp 2019, which the project required me to make a
-                board game in conjunction with other games in the event. The
-                board game is created by using <HighlightText text="React" />{" "}
-                and <HighlightText text="TypeScript" />
-              </li>
-              <li>
+          <Timeline>
+            <TimelineItem duration={{ start: "August 2019" }} title="Newster">
+              <AboutMeParagraphText>
+                After Shuffler, I get my hands on some other projects by using
+                other tech/languages as well, for example Newster, which built
+                with <HighlightText text="Go" /> &amp;{" "}
+                <HighlightText text="Vuejs" />. Newster is a simple app that
+                catches fresh hot tech news from various websites such as CSDN,
+                CSS-Tricks, dev-to and so on.
+              </AboutMeParagraphText>
+            </TimelineItem>
+
+            <TimelineItem duration={{ start: "March 2019" }} title="Shuffler">
+              <AboutMeParagraphText>
                 In the same year, I started my hobby project, Shuffler,
                 requested by my friend. Shuffler is an app that randomizes user
                 existing YouTube playlist and play it. It starts simple with
-                React, then refactored into TypeScript in July for better
+                React, then refactored into TypeScript in July 2019 for better
                 maintainability.
-              </li>
-              <li>
-                After Shuffler, I get my hands on some other projects by using
-                other tech/languages as well, such as notes-gallery (
-                <HighlightText text="PHP" />
-                ), Newster (
-                <HighlightText text="Go" /> &amp; <HighlightText text="Vue" />)
-                and so on. More projects are shown in my github repository.
-              </li>
-            </StyledUl>
-          </AboutMeParagraphText>
-
-          <AboutMeParagraphText>
-            During my free time, I am constantly keeping myself updated with the
-            latest technology in front-end world as well. Besides front-end app,
-            I started to dive into the backend world for a better understanding
-            on the overall working mechanism of the web.
-          </AboutMeParagraphText>
+              </AboutMeParagraphText>
+            </TimelineItem>
+            <TimelineItem
+              duration={{ start: "January 2019", end: "March 2019" }}
+              title="Maths Camp 2019 Boardgame"
+            >
+              <AboutMeParagraphText>
+                Developed my second project for UUM Math Camp, which the project
+                required me to make a board game in conjunction with other games
+                in the event.
+              </AboutMeParagraphText>
+            </TimelineItem>
+            <TimelineItem
+              duration={{
+                start: 2018,
+                end: 2019,
+              }}
+              title="Maths Camp 2018 Game"
+            >
+              <AboutMeParagraphText>
+                Dive deeper into web development. During this period, I
+                developed my first project with <HighlightText text="Vuejs" />,
+                which is a game for primary school kids in UUM Math Camp 2018
+                event.
+              </AboutMeParagraphText>
+            </TimelineItem>
+            <TimelineItem
+              duration={{
+                start: 2017,
+                end: 2018,
+              }}
+              title="Java"
+            >
+              <AboutMeParagraphText>
+                First learnt programming with Java. Learnt about Object-Oriented
+                Programming (OOP) and some computer science theoretical
+                knowledge.
+              </AboutMeParagraphText>
+            </TimelineItem>
+          </Timeline>
         </Box>
       </Box>
     </Element>

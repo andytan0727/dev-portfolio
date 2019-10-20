@@ -30,7 +30,7 @@ export const Timeline: React.FC<TimelineProps> = (props: TimelineProps) => {
   });
 
   return (
-    <Flex alignItems="center" justifyContent="center" px={3}>
+    <Flex alignItems="center" justifyContent="center">
       <StyledTimelineList>{ChildrenWithProps}</StyledTimelineList>
     </Flex>
   );

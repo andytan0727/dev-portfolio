@@ -46,6 +46,7 @@ const StyledTimelineDuration = styled.p<StyledTimelineDurationProps>`
   background: ${props => props.background};
   color: ${props => props.color};
   border-radius: 1em;
+  font-weight: bold;
 `;
 
 const StyledContent = styled(Box)<{ lineColor: string }>`

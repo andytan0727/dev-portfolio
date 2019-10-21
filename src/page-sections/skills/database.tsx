@@ -1,5 +1,5 @@
 import React from "react";
-import { DiMysql } from "react-icons/di";
+import { DiMongodb, DiMysql } from "react-icons/di";
 import { Box, Text } from "rebass";
 
 import { SkillPanel } from "@src/components/panel";
@@ -15,6 +15,13 @@ const DatabaseSection: React.FC = () => {
         icon={<DiMysql size={50} />}
         progressPercent={35}
         skillExperienceDesc="Using it mostly (without ORM) when setting up backend services. E.g. core PHP &amp; Laravel"
+      />
+
+      <SkillPanel
+        tooltip="MongoDB"
+        icon={<DiMongodb size={50} />}
+        progressPercent={20}
+        skillExperienceDesc="Touched it once in my JS hobby project with mongoose ORM."
       />
     </Box>
   );

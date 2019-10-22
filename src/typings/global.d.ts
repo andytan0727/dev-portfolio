@@ -39,6 +39,14 @@ declare module "react-typed" {
   export default Typed;
 }
 
+declare module "*.svg" {
+  const SVGNode: React.FC<{
+    style?: React.CSSProperties;
+  }>;
+
+  export default SVGNode;
+}
+
 declare module "theme-ui" {
   export { ThemeProvider } from "theme-ui";
   type ColorMode = "dark" | "light";

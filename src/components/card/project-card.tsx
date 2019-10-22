@@ -3,12 +3,19 @@ import { FaJs, FaLinux, FaPhp, FaPython } from "react-icons/fa";
 import { Box, Card, Flex, Link, LinkProps, Text } from "rebass";
 import { useThemeUI } from "theme-ui";
 
+import Jupyter from "@components/image/jupyter";
 import styled from "@emotion/styled";
 import { GithubDataRepositoriesNode } from "@src/types/github-data-query";
 
 import { TypescriptSvg } from "../image";
 
-type Lang = "javascript" | "typescript" | "php" | "python" | "shell";
+type Lang =
+  | "javascript"
+  | "typescript"
+  | "php"
+  | "python"
+  | "shell"
+  | "jupyter notebook";
 
 interface LangIconProps {
   lang: Lang;
@@ -47,6 +54,9 @@ const LangIcon: React.FC<LangIconProps> = (props: LangIconProps) => {
 
     case "shell":
       return <FaLinux color={color} size={iconSize} />;
+
+    case "jupyter notebook":
+      return <Jupyter size={iconSize} />;
 
     default:
       return null;
